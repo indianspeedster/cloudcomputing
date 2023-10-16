@@ -11,9 +11,6 @@ LF2 Lambda Function performs --
 
 import boto3
 from boto3.dynamodb.conditions import Attr
-#from sendgrid import SendGridAPIClient
-#from sendgrid.helpers.mail import Mail
-#from bs4 import BeautifulSoup
 import requests
 import json
 import os
@@ -22,7 +19,6 @@ import ast
 
 
 sqs = boto3.client('sqs')
-#sns = boto3.client('sns')
 dynamodb = boto3.resource('dynamodb')
 
 # LF2 constants
@@ -31,10 +27,9 @@ max_poll = 10
 es_endpoint = 'https://search-restaurants-pu5mxm7ts6gebt7lfzqfd32uri.us-east-1.es.amazonaws.com/'
 es_index = 'restaurant'
 dynamodb_table = 'yelp_restaurants'
-#from_email = os.environ.get('FROM_EMAIL')
-#sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
-es_username = 'admin'
-es_password = 'Admin@1234'
+
+es_username = '****'
+es_password = '********'
 subject = 'REVEALED: Checkout these Restaurants of your Interest!!!'
 number_of_suggestions = 5
 
@@ -46,7 +41,7 @@ def fetch_msg_from_sqs():
 def delete_msg_from_sqs(receipt_handle):
     sqs.delete_message(QueueUrl=sqs_url, ReceiptHandle=receipt_handle)
     print('Message with Receipt Handle {} deleted'.format(receipt_handle))
-'''
+
 def send_email(msgToSend, emailAddress):
     message = Mail(from_email=from_email, to_emails=emailAddress, subject=subject, html_content=msgToSend)
     sg = SendGridAPIClient(sendgrid_api_key)
@@ -57,7 +52,7 @@ def send_sms(msgToSend, phoneNumber):
     print(msgToSend, phoneNumber)
     response = sns.publish(PhoneNumber='+1{}'.format(phoneNumber),Message=msgToSend, MessageStructure='string')
     print('SNS Response-> {}'.format(response))
-'''
+
 
 def query_es(cuisine):
 
