@@ -4,7 +4,7 @@ from datetime import datetime
 import time
 
 # Replace with your Yelp API key
-api_key = 'gIv7utFQyDcelvz7zDnmDmHbjDh8IR4FTwVdLLoMEKwc2PpD8n2n_Z_Ys5dpMrkguNFyVtMqHcD76j_WNV8cL_w8nsaXRqmgJ3FtcDwRHYAoobOVox6X6WsEARMqZXYx'
+api_key = ''
 
 # Set your desired cuisine type and location
 cuisine_types = ['indpak','Chinese','Mexican','Italian']
@@ -15,7 +15,7 @@ url = 'https://api.yelp.com/v3/businesses/search'
 
 # Set the HTTP headers with your API key
 headers = {
-    'Authorization': f'Bearer {"gIv7utFQyDcelvz7zDnmDmHbjDh8IR4FTwVdLLoMEKwc2PpD8n2n_Z_Ys5dpMrkguNFyVtMqHcD76j_WNV8cL_w8nsaXRqmgJ3FtcDwRHYAoobOVox6X6WsEARMqZXYx"}',
+    'Authorization': f'Bearer {""}',
 }
 responses=[]
 json_data=[]
